@@ -1,0 +1,135 @@
+[{
+    "type":  "record",
+    "name": "Session",
+    "namespace": "test.avro",
+    "fields": [
+        {"name": "name", "type": ["null", "string"]},
+        {"name": "id", "type": ["null", "int"]}
+    ]
+},
+{
+    "type": "record",
+    "name": "DeviceProperties",
+    "namespace": "test.avro",
+    "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "model", "type": "string"},
+        {"name": "vendor", "type": "string"},
+        {"name": "serial_number", "type": "string"}
+    ]
+},
+{
+    "type": "record",
+    "name": "EnumerateDevicesRequest",
+    "namespace": "test.avro",
+    "fields": []
+},
+{
+        "type": "record",
+        "name": "EnumerateDevicesResponse",
+        "namespace": "test.avro",
+        "fields": [
+            {
+                "name": "devices",
+                "type": {
+                    "type": "array",
+                    "items": "DeviceProperties"
+                }
+            }
+        ]
+},
+{
+    "type": "record",
+    "name": "ReserveRequest",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "string",
+            "name": "reservation_id"
+        },
+        {
+            "type": "string",
+            "name": "client_id"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "ReserveResponse",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "boolean",
+            "name": "is_reserved"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "IsReservedByClientRequest",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "string",
+            "name": "reservation_id"
+        },
+        {
+            "type": "string",
+            "name": "client_id"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "IsReservedByClientResponse",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "boolean",
+            "name": "is_reserved"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "UnreserveRequest",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "string",
+            "name": "reservation_id"
+        },
+        {
+            "type": "string",
+            "name": "client_id"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "UnreserveResponse",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "boolean",
+            "name": "is_unreserved"
+        }
+    ]
+},
+{
+    "type": "record",
+    "name": "ResetServerRequest",
+    "namespace": "test.avro",
+    "fields": []
+},
+{
+    "type": "record",
+    "name": "ResetServerResponse",
+    "namespace": "test.avro",
+    "fields": [
+        {
+            "type": "boolean",
+            "name": "is_server_reset"
+        }
+    ]
+}]

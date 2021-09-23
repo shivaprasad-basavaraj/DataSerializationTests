@@ -1,0 +1,60 @@
+struct session_id {
+    id: uint;
+}
+
+union Session {
+    name: string,
+    id: session_id
+}
+
+table DeviceProperties {
+  name: string;
+  model: string;
+  vendor: string;
+  serial_number: string;
+}
+
+table EnumerateDevicesRequest {}
+
+table EnumerateDevicesResponse {
+  devices: [DeviceProperties];
+}
+
+table ReserveRequest {
+  // client defined string representing a set of reservable resources
+  reservation_id: string;
+  // client defined identifier for a specific client
+  client_id: string;
+}
+
+struct ReserveResponse {
+  is_reserved: bool;
+}
+
+table IsReservedByClientRequest {
+  // client defined string representing a set of reservable resources
+  reservation_id: string;
+  // client defined identifier for a specific client
+  client_id: string;
+}
+
+struct IsReservedByClientResponse {
+  is_reserved: bool;
+}
+
+table UnreserveRequest {
+  // client defined string representing a set of reservable resources
+  reservation_id: string;
+  // client defined identifier for a specific client
+  client_id: string;
+}
+
+struct UnreserveResponse {
+  is_unreserved: bool;
+}
+
+table ResetServerRequest {}
+
+struct ResetServerResponse {
+  is_server_reset: bool;
+}

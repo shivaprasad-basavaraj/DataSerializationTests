@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF78DE01-87EA-41F7-90E5-7E32743B6BA6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataSerializationTests</RootNamespace>
+    <AssemblyName>DataSerializationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Driver Data.avsc" />
+    <None Include="Driver Data.fbs" />
+    <None Include="Driver Data.proto" />
+    <None Include="Driver Data.thrift" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AvroSerialization\AvroSerialization.csproj">
+      <Project>{b1b78d00-2946-43e8-9aaa-677a3548e2e0}</Project>
+      <Name>AvroSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatBufferSerialization\FlatBufferSerialization.csproj">
+      <Project>{f60d8b1d-504f-4d61-b24a-db9496619630}</Project>
+      <Name>FlatBufferSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="JSONSerialization\JSONSerialization.csproj">
+      <Project>{06d8aac4-155d-4602-acd2-c72b0322e2fe}</Project>
+      <Name>JSONSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProtoBufSerialization\ProtoBufSerialization.csproj">
+      <Project>{fa8ba7b6-bb86-45a1-b5f5-dd662214b04d}</Project>
+      <Name>ProtoBufSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="ThriftSerialization\ThriftSerialization.csproj">
+      <Project>{149aa1d0-4e4f-4abd-adde-94301308d094}</Project>
+      <Name>ThriftSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="XMLSerialization\XMLSerialization.csproj">
+      <Project>{ec02a0c1-a664-4ede-8eb8-53a6ef20f661}</Project>
+      <Name>XMLSerialization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
